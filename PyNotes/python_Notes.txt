@@ -1,0 +1,59 @@
+install python
+cmd
+where python
+python --version
+pip install selenium
+pip install pytest
+pip install pytest-html 
+pip install pytest-xdist
+pip install openpyxl
+pip install Allure-pytest
+
+Create Pytest frame work folder structure
+project
+|
+ configuration
+ drivers
+ logs
+ pageObjects
+ reports
+ screenShot
+ testCases
+ testData
+ utilities
+ 
+Copy the chrome and edge drivers to the drivers folder
+Configure the URL and other Login info in the config.ini file in the configurations package
+Create a file in the utilities package named readConfigProperties to read the info from the config.ini file
+Create PageObject classes for each page of the application
+Create a class in the conftest.py file in the testcase package with the setup method using pytest yield and fixtures
+Create a testcases in the textcase package
+Create a customLogger.py in the utilities package to log all the steps for easy debugging and configure it to save in the logs folder
+To pass the browser choice from command line update the conftest.py
+
+1. To run the all the testcases in the testcase package
+   Use pytest -v -s 
+   
+2. To run a specific testcase
+	Use pytest -v -s testCases/test_DeleteUser_DataDriven.py
+
+    
+3. To run a specific method in the testcase
+	Use pytest -v -s testCases/test_Login.py::test_HomePageTitle
+	
+	
+4.To generate html reports
+    Use pytest -v -s --html=reports/Automationreport.html testCases/test_Login.py
+    
+5.To choose a particular browser
+    Use Use pytest -v -s --html=reports/Automationreport.html testCases/test_Login.py --browser chrome
+    
+6.To group and run the testcases as per group markings
+	Use pytest -v -s -m "sanity or regression" --html=reports/Automationreport.html testCases/test_Login.py --browser chrome
+
+
+ 
+ 
+ 
+
+
